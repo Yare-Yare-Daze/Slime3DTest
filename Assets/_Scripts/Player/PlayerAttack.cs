@@ -19,6 +19,7 @@ public class PlayerAttack : EntityAttack
 
     private void OnEnemyDetectedHandler(Collider enemyCollider)
     {
+        Debug.Log(gameObject.name + " OnEnemyDetectedHandler invoked");
         EntityDamageable enemyDamageable = enemyCollider.transform.parent.GetComponent<EntityDamageable>();
         PerformAttack(enemyDamageable);
     }

@@ -23,6 +23,8 @@ public class EntityHealth : MonoBehaviour
         }
     }
 
+    public float MaxHealth { get { return _maxHealth; } }
+
     private void Awake()
     {
         Initialize();

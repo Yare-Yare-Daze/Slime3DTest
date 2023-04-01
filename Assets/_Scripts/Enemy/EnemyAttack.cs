@@ -23,7 +23,7 @@ public class EnemyAttack : EntityAttack
         PerformAttack(playerDamageable);
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         enemyTriggerAttack.OnPlayerDetected -= OnPlayerDetectedHandler;
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class EntityHealthBar : MonoBehaviour
 {
     [SerializeField] private EntityHealth entityHealth;
     [SerializeField] private RectTransform healthBar;
+    [SerializeField] private TextMeshProUGUI healthText;
 
     private void Awake()
     {
@@ -15,6 +17,7 @@ public class EntityHealthBar : MonoBehaviour
 
     private void Initialize()
     {
+        healthText.text = $"{entityHealth.Health}/{entityHealth.MaxHealth}";
         entityHealth.OnHealthChanged += ChangeHealthBar;
     }
 
@@ -23,6 +26,7 @@ public class EntityHealthBar : MonoBehaviour
         var healthScale = healthBar.localScale;
         healthScale.x = health / 100;
         healthBar.localScale = healthScale;
+        healthText.text = $"{health}/{entityHealth.MaxHealth}";
     }
 
 }
