@@ -31,6 +31,6 @@ public class EntityHealth : MonoBehaviour
     private void Initialize()
     {
         _maxHealth = startHealth;
-        _health = _maxHealth;
+        Health = _maxHealth;
     }
 }
