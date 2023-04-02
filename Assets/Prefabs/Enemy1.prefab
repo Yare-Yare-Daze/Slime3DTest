@@ -171,6 +171,7 @@ GameObject:
   - component: {fileID: 5090167397443544533}
   - component: {fileID: 5090167397443544532}
   - component: {fileID: 5090167397606734377}
+  - component: {fileID: 51771777298918192}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -250,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c02391cc34973084fafd0d7bedf1556a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageValue: 10
+  damageValue: 5
   attackInterval: 1
   enemyTriggerAttack: {fileID: 5090167396285431303}
 --- !u!54 &5090167397443544533
@@ -299,6 +300,20 @@ MonoBehaviour:
   countMoney: 3
   enemyDeath: {fileID: 5090167397443544534}
   coinsPSPrefab: {fileID: 7762732720020830074, guid: 4b32136685d3dc34697e7a5e41f710da, type: 3}
+--- !u!114 &51771777298918192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5090167397443544523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 637e70a7af5a7ff488f1a35812cd3237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  enemyCheckTriggerAttack: {fileID: 5090167396285431303}
 --- !u!1001 &5090167395591589322
 PrefabInstance:
   m_ObjectHideFlags: 0

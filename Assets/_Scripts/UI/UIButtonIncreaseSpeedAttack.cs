@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class UIButtonIncreaseAttack : MonoBehaviour
+public class UIButtonIncreaseSpeedAttack : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textMoney;
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private MoneyManager moneyManager;
     [SerializeField] private int cost;
-    [SerializeField] private int increaseValue;
+    [SerializeField] private float increaseValue;
 
     private int _cost;
-    private int _increaseValue;
+    private float _increaseValue;
 
     private void Awake()
     {
@@ -21,17 +21,15 @@ public class UIButtonIncreaseAttack : MonoBehaviour
         textMoney.text = _cost.ToString();
     }
 
-    public void OnClickIncreaseAttack()
+    public void OnClickIncreaseAttackSpeed()
     {
-        if(MoneyManager.S.MoneyValue >= _cost)
+        if (MoneyManager.S.MoneyValue >= _cost)
         {
             MoneyManager.S.MoneyValue -= _cost;
-            playerAttack.Damage += _increaseValue;
+            playerAttack.AttackInterval -= _increaseValue;
             _cost += 5;
-            _increaseValue += 5;
+            _increaseValue += 1f;
             textMoney.text = _cost.ToString();
         }
     }
-
-
 }

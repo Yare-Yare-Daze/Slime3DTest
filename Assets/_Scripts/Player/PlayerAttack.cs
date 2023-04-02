@@ -13,6 +13,8 @@ public class PlayerAttack : EntityAttack
 
     private EntityDeath currentEnemyDeath;
 
+    public bool IsAttack { get { return isAttack; } }
+
     private void Awake()
     {
         Initialize();
@@ -64,9 +66,9 @@ public class PlayerAttack : EntityAttack
                 Vector3 point0 = transform.position;
                 Vector3 point2 = enemyTransform.position;
                 Vector3 point1 = point0 + (point2 - point0) / 2 + Vector3.up * 5.0f;
-                Vector3 m1 = Vector3.Lerp(point0, point1, time);
-                Vector3 m2 = Vector3.Lerp(point1, point2, time);
-                projectile.position = Vector3.Lerp(m1, m2, time);
+                Vector3 m1 = Vector3.Lerp(point0, point1, time / AttackInterval);
+                Vector3 m2 = Vector3.Lerp(point1, point2, time / AttackInterval);
+                projectile.position = Vector3.Lerp(m1, m2, time / AttackInterval);
                 time += Time.deltaTime;
                 yield return null;
             }
