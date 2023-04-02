@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 166169714}
   - component: {fileID: 166169713}
   m_Layer: 5
-  m_Name: ButtonIncreaseAttack (3)
+  m_Name: ButtonIncreaseAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1104,7 +1104,7 @@ GameObject:
   - component: {fileID: 603396292}
   - component: {fileID: 603396291}
   m_Layer: 5
-  m_Name: ButtonIncreaseAttack (1)
+  m_Name: ButtonIncreaseMaxHP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1227,7 +1227,7 @@ GameObject:
   - component: {fileID: 606276515}
   - component: {fileID: 606276514}
   m_Layer: 5
-  m_Name: ButtonIncreaseAttack (2)
+  m_Name: ButtonIncreaseRegen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2009,6 +2009,7 @@ GameObject:
   - component: {fileID: 1101695551}
   - component: {fileID: 1101695552}
   - component: {fileID: 1101695553}
+  - component: {fileID: 1101695554}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2120,6 +2121,20 @@ MonoBehaviour:
   entityHealth: {fileID: 1101695549}
   healthBar: {fileID: 6904009483940277663}
   healthText: {fileID: 6904009483940277665}
+--- !u!114 &1101695554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101695545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cffac9d4676634b4c9851c6396f8bb43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpPerSecond: 5
+  entityHealth: {fileID: 1101695549}
 --- !u!1001 &1261469939
 PrefabInstance:
   m_ObjectHideFlags: 0

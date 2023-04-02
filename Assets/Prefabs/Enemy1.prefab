@@ -294,8 +294,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5c5d8a524f62142a21017e0b88b825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countMoney: 1
+  countMoney: 3
   enemyDeath: {fileID: 5090167397443544534}
+  coinsPSPrefab: {fileID: 7762732720020830074, guid: 4b32136685d3dc34697e7a5e41f710da, type: 3}
 --- !u!1001 &5090167395591589322
 PrefabInstance:
   m_ObjectHideFlags: 0
