@@ -19,6 +19,7 @@ public class EntityHealthBar : MonoBehaviour
     {
         healthText.text = $"{entityHealth.Health}/{entityHealth.MaxHealth}";
         entityHealth.OnHealthChanged += ChangeHealthBar;
+        entityHealth.OnMaxHealthChanged += ChangeMaxHealthBar;
     }
 
     private void ChangeHealthBar(float health)
@@ -27,6 +28,14 @@ public class EntityHealthBar : MonoBehaviour
         healthScale.x = health / 100;
         healthBar.localScale = healthScale;
         healthText.text = $"{health}/{entityHealth.MaxHealth}";
+    }
+
+    private void ChangeMaxHealthBar(float health, float maxhealth)
+    {
+        var healthScale = healthBar.localScale;
+        healthScale.x = health / 100;
+        healthBar.localScale = healthScale;
+        healthText.text = $"{health}/{maxhealth}";
     }
 
 }
