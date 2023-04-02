@@ -9,8 +9,10 @@ public class EntityAttack : MonoBehaviour
     [SerializeField] private float attackInterval;
 
     public Action<float> OnDamageChanged;
+    public Action<float> OnAttackIntervalChanged;
 
     private float _damage;
+    private float _attackInterval;
 
     public float Damage
     {
@@ -26,6 +28,19 @@ public class EntityAttack : MonoBehaviour
         }
     }
 
+    public float AttackInterval
+    {
+        get
+        {
+            return _attackInterval;
+        }
+        set
+        {
+            _attackInterval = Mathf.Clamp(value, 0, float.MaxValue);
+            OnAttackIntervalChanged?.Invoke(_attackInterval);
+        }
+    }
+
     private void Awake()
     {
         Initialize();
@@ -34,6 +49,7 @@ public class EntityAttack : MonoBehaviour
     protected virtual void Initialize()
     {
         Damage = damageValue;
+        AttackInterval = attackInterval;
     }
 
     protected virtual void PerformAttack(EntityDamageable entityDamageable)
@@ -45,8 +61,8 @@ public class EntityAttack : MonoBehaviour
     {
         while(gameObject.activeSelf && entityDamageable.gameObject.activeSelf)
         {
+            yield return new WaitForSeconds(AttackInterval);
             entityDamageable.ApplyDamage(Damage);
-            yield return new WaitForSeconds(attackInterval);
         }
     }
 }
