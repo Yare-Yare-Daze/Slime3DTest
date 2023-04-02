@@ -223,6 +223,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityHealth: {fileID: 5090167397443544521}
   rendererComp: {fileID: 5090167395651562407}
+  takenDamageText: {fileID: 5090167396443400188}
+  timeShowTakenDamage: 2
 --- !u!114 &5090167397443544534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,6 +417,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7811229591668760341, guid: bf4c2653e6820464db19c4f4314c4da1, type: 3}
   m_PrefabInstance: {fileID: 5090167395591589322}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5090167396443400188 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1036757558, guid: bf4c2653e6820464db19c4f4314c4da1, type: 3}
+  m_PrefabInstance: {fileID: 5090167395591589322}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5487310814944856721 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 758065283934029659, guid: bf4c2653e6820464db19c4f4314c4da1, type: 3}

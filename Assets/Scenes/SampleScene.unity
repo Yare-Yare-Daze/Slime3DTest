@@ -1994,6 +1994,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1036757558 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1036757558, guid: bf4c2653e6820464db19c4f4314c4da1, type: 3}
+  m_PrefabInstance: {fileID: 6904009483940277662}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1101695545
 GameObject:
   m_ObjectHideFlags: 0
@@ -2049,6 +2060,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityHealth: {fileID: 1101695549}
   rendererComp: {fileID: 1261469941}
+  takenDamageText: {fileID: 1036757558}
+  timeShowTakenDamage: 2
 --- !u!114 &1101695549
 MonoBehaviour:
   m_ObjectHideFlags: 0
