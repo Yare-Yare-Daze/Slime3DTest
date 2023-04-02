@@ -1,17 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class PlayerCheckTriggerAttack : MonoBehaviour
 {
-    public Action<Collider> OnEnemyDetected;
+    private Queue<Collider> enemyCollidersQueue = new Queue<Collider>();
+
+    public Action<Queue<Collider>> OnEnemyDetected;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag(Strings.Enemy))
         {
-            OnEnemyDetected?.Invoke(other);
+            enemyCollidersQueue.Enqueue(other);
+            OnEnemyDetected?.Invoke(enemyCollidersQueue);
         }
     }
 }

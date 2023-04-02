@@ -6,6 +6,11 @@ public class PlayerAttack : EntityAttack
 {
     [SerializeField] private PlayerCheckTriggerAttack playerTriggerAttack;
 
+    private bool isAttack = false;
+    private Queue<EntityDamageable> enemyDamageablesQueue = new Queue<EntityDamageable>();
+
+    private EntityDeath currentEnemyDeath;
+
     private void Awake()
     {
         Initialize();
@@ -17,10 +22,29 @@ public class PlayerAttack : EntityAttack
         playerTriggerAttack.OnEnemyDetected += OnEnemyDetectedHandler;
     }
 
-    private void OnEnemyDetectedHandler(Collider enemyCollider)
+    private void Update()
     {
-        EntityDamageable enemyDamageable = enemyCollider.transform.parent.GetComponent<EntityDamageable>();
-        PerformAttack(enemyDamageable);
+        if(!isAttack && enemyDamageablesQueue.Count > 0)
+        {
+            EntityDamageable enemyDamageable = enemyDamageablesQueue.Dequeue();
+            currentEnemyDeath = enemyDamageable.gameObject.GetComponent<EntityDeath>();
+            PerformAttack(enemyDamageable);
+
+            isAttack = true;
+            currentEnemyDeath.OnEntityDeath += ResetIsAttack;
+        }
+    }
+
+    private void ResetIsAttack()
+    {
+        currentEnemyDeath.OnEntityDeath -= ResetIsAttack;
+        isAttack = false;
+    }
+
+    private void OnEnemyDetectedHandler(Queue<Collider> enemyCollidersQueue)
+    {
+        EntityDamageable enemyDamageable = enemyCollidersQueue.Dequeue().transform.parent.GetComponent<EntityDamageable>();
+        enemyDamageablesQueue.Enqueue(enemyDamageable);
     }
 
     private void OnDestroy()
